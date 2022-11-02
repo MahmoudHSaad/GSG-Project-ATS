@@ -4,7 +4,6 @@ export interface Job {
     sectorId:number,
     functionalAreaId:number, 
     countryId:number, 
-    region:number, 
     cityId:number, 
     yeasOfExperience:Range;
     expectedSalary:Range;

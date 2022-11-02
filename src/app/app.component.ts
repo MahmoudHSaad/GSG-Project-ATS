@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { DropDown } from './models/drop-down.model';
 import { DropDownService } from './shared/services/drop-down.service';
 
 @Component({
@@ -10,11 +12,23 @@ import { DropDownService } from './shared/services/drop-down.service';
 export class AppComponent implements OnInit , OnDestroy {
   title = 'ATS';
   subscriptions:Subscription[]=[]
+  items:DropDown[]=[
+    {id:1, name:"saad1" },
+    {id:2, name:"saad2" },
+    {id:3, name:"saad3" },
+  ]
+  items2:DropDown[]=[]
+  items4:DropDown[]=[]
+  serlectedItem:any= null;
+  serlectedItem2:any= null;
+
+
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   constructor(private DropDownService : DropDownService){
 
   }
 
-
+  toppings = new FormControl('');
   ngOnInit(){
   var sub=  this.DropDownService.getAll().subscribe(
       res=>{
@@ -23,11 +37,25 @@ export class AppComponent implements OnInit , OnDestroy {
     })
     this.subscriptions.push(sub);
 
-    console.log(this.DropDownService.getCountries() , "countries");
-    console.log(this.DropDownService.getCities() , "cities");
-    console.log(this.DropDownService.getUniversities() , "getUniversities");
-    
+    this.items2= this.DropDownService.getCountries()
 
+    console.log(this.DropDownService.getCountries() , "countries");
+    console.log(this.DropDownService.getCities(1) , "cities");
+    console.log(this.DropDownService.getUniversities(1) , "getUniversities");
+
+  }
+  onItemChange(item:DropDown){
+    this.serlectedItem = item
+    this.items4= this.DropDownService.getCities(item.id)
+    console.log(this.DropDownService.getCities(item.id) , "cities");
+  }
+  onItemChange2(item:DropDown){
+    this.serlectedItem2 = item
+    this.items4=this.DropDownService.getCities(item.id)
+  }
+  onItemChange3(item:DropDown){
+  console.log(item,"dscsdvsd");
+  
   }
   
   ngOnDestroy(){

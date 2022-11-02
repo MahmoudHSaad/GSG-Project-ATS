@@ -98,10 +98,12 @@ export class DropDownService {
     countries =  this.getDropdownsInLocalStorage().countries ; 
     return countries;
   }
-  getCities():DropDownParent[]{
-    let  cities ; 
-    cities =  this.getDropdownsInLocalStorage().cities ; 
-    return cities;
+  getCities(countryId:number):DropDownParent[]{
+
+   return this.getDropdownsInLocalStorage().cities.filter((id:any)=>{
+     return  id.parentId == countryId
+    }) ; 
+   
   }
   getSectors():DropDown[]{
     let  sectors ; 
@@ -158,9 +160,10 @@ export class DropDownService {
     majors =  this.getDropdownsInLocalStorage().majors ; 
     return majors;
   } 
-  getUniversities():DropDownParent[]{
-    let  universities:DropDownParent[] ; 
-    universities =  this.getDropdownsInLocalStorage().universities ; 
-    return universities;
-  } 
+  getUniversities(cityId:number):DropDownParent[]{
+     
+  return this.getDropdownsInLocalStorage().universities.filter((id:any)=>{
+    return  id.parentId == cityId
+   }) 
+}
 }
