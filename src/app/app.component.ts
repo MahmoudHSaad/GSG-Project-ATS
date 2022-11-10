@@ -32,29 +32,27 @@ export class AppComponent implements OnInit , OnDestroy {
   ngOnInit(){
   var sub=  this.DropDownService.getAll().subscribe(
       res=>{
-        console.log(res);
+      
         this.DropDownService.setDropdownsInLocalStorage(res);
     })
     this.subscriptions.push(sub);
 
     this.items2= this.DropDownService.getCountries()
 
-    console.log(this.DropDownService.getCountries() , "countries");
-    console.log(this.DropDownService.getCities(1) , "cities");
-    console.log(this.DropDownService.getUniversities(1) , "getUniversities");
+ 
 
   }
   onItemChange(item:DropDown){
     this.serlectedItem = item
     this.items4= this.DropDownService.getCities(item.id)
-    console.log(this.DropDownService.getCities(item.id) , "cities");
+ 
   }
   onItemChange2(item:DropDown){
     this.serlectedItem2 = item
     this.items4=this.DropDownService.getCities(item.id)
   }
   onItemChange3(item:DropDown){
-  console.log(item,"dscsdvsd");
+  
   
   }
   

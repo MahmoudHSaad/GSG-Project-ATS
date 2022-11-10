@@ -4,8 +4,16 @@ import { JobsComponent } from '../jobs/jobs.component';
 import { JobseekersComponent } from './jobseekers.component';
 
 const routes: Routes = [
-  {path:'' , component:JobseekersComponent},
-  {path:'' , redirectTo:'/jobseekers/' , pathMatch:"full"},
+  // {path:'sdsdvs' , component:JobseekersComponent},
+  // {path:'' , redirectTo:'/jobseekers/' , pathMatch:"full"},
+  {path:'' , redirectTo:'/profile/' , pathMatch:"full"},
+
+{path:'profile' , loadChildren:()=> import('./profile/profile.module').then(m => m.ProfileModule) },
+{path:'job' , loadChildren:()=> import('./job/job.module').then(m => m.JobModule) }
+
+
+
+
  
 ];
 

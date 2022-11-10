@@ -5,7 +5,7 @@ export interface Education {
     cityId:number,
     universityId:number,  
     startDate:Date,
-    endDate:Date,
+    endDate:Date;
     presentStatus:string
 }
 

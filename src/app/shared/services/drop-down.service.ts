@@ -8,7 +8,7 @@ import { DropDown } from 'src/app/models/drop-down.model';
 })
 export class DropDownService {
   dropDownKey:string= "dropdowns"
-
+ status:boolean = false
   constructor() { }
 
   getAll():Observable<any>{
@@ -22,9 +22,10 @@ export class DropDownService {
     ];
     dropdowns['cities'] = [
       {id:1 , name:"Gaza" , parentId:1},
+      {id:5 , name:"Gaza555" , parentId:1},
+      {id:4 , name:"Cairo" ,parentId:2},
       {id:2 , name:"London" ,parentId:3},
       {id:3 , name:"Washonton" ,parentId:4},
-      {id:4 , name:"Cairo" ,parentId:2},
     ];
     dropdowns['sectors'] = [
       {id:1 , name:"Management" },
@@ -58,8 +59,8 @@ export class DropDownService {
       {id:3 , name:"Master's or equivalent level" },
     ];
     dropdowns['skills'] = [
-      {id:1 , name:"skills 1" },
-      {id:2 , name:"skills 2" },
+      {id:1 , name:"Time Mangement" },
+      {id:2 , name:"Work Under stress" },
     ];
   
     dropdowns['languagesSkillsLevel'] = [
@@ -68,17 +69,19 @@ export class DropDownService {
       {id:3 , name:"advanced" },
     ];
     dropdowns['status'] = [
-      {id:1 , name:"status 1" },
-      {id:2 , name:"status 2" },
+      {id:1 , name:"Yes" },
+      {id:2 , name:"No" },
     ];
     dropdowns['majors'] = [
-      {id:1 , name:"majors 1" },
-      {id:2 , name:"majors 2" },
+      {id:1 , name:"IT" },
+      {id:2 , name:"Computer" },
     ];
     dropdowns['universities'] = [
       {id:1 , name:"AUG", parentId:1 },
       {id:2 , name:"IUG", parentId:1 },
-      {id:3 , name:"The University of Jordan", parentId:2 },
+      {id:3 , name:"The University of london", parentId:2 },
+      {id:4 , name:"The University of Cairo", parentId:4 },
+      {id:5 , name:"The University of Washonton", parentId:3 },
      
     ];
     return of(dropdowns)
@@ -166,4 +169,6 @@ export class DropDownService {
     return  id.parentId == cityId
    }) 
 }
+
+ 
 }

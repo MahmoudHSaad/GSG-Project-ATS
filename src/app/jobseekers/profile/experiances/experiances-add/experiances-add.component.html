@@ -1,0 +1,57 @@
+<form class="form-horizontal" [formGroup]="ExperForm" (ngSubmit)="save()">
+    <div class="form-group row">
+        <label for="inputName" class="col-sm-2 col-form-label">Position</label>
+        <div class="col-sm-10">
+            <input type="text" formControlName="position" class="form-control" id="inputName" placeholder="Position">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail" class="col-sm-2 col-form-label">Company</label>
+        <div class="col-sm-10">
+            <input type="text" formControlName="company" class="form-control" id="inputEmail" placeholder="company">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail" class="col-sm-2 col-form-label">Country</label>
+        <div class="col-sm-10">
+            <app-drop-down [items]="Country" (itemChangeEmitter)="onCountryChange($event)"></app-drop-down>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputName2" class="col-sm-2 col-form-label">City </label>
+        <div class="col-sm-10">
+            <app-drop-down [items]="City" (itemChangeEmitter)="onCityChange($event)"></app-drop-down>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputName2" class="col-sm-2 col-form-label">Start Date</label>
+        <div class="col-sm-10">
+            <input formControlName="startDate" type="date" class="form-control" id="inputName2">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputName2" class="col-sm-2 col-form-label">EndDate</label>
+        <div class="col-sm-10">
+            <input formControlName="endDate" type="date" class="form-control" id="inputName2">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputName2" class="col-sm-2 col-form-label">Present Status</label>
+        <div class="col-sm-10">
+            <app-drop-down [items]="Status" (itemChangeEmitter)="onStatusChange($event)"></app-drop-down>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail" class="col-sm-2 col-form-label">Salary</label>
+        <div class="col-sm-10">
+            <input type="text" formControlName="salary" class="form-control" id="inputEmail" placeholder="Salary">
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <div class="offset-sm-2 col-sm-10">
+            <button type="submit" class="btn btn-danger">Submit</button>
+        </div>
+    </div>
+</form>
