@@ -1,5 +1,5 @@
 export enum Role{
-    EMPLOYER ,
-    JOBSEEKER,
-    INTERVIEWER 
+    EMPLOYER ="EMPLOYER",
+    JOBSEEKER ="JOBSEEKER",
+    INTERVIEWER  = "INTERVIEWER"
 }

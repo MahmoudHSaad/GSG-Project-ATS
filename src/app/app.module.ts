@@ -8,9 +8,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LayoutModule } from './layout/layout.module';
+import { ChartsComponent } from './componants/charts/charts.component';
+import { FormsComponent } from './componants/forms/forms.component';
+import { TablesComponent } from './componants/tables/tables.component';
+import { DashboradComponent } from './componants/dashborad/dashborad.component';
+import { UsersModule } from './users/users.module';
+import { RouterModule } from '@angular/router';
+ 
 @NgModule({
   declarations: [
     AppComponent,
+    ChartsComponent,
+    FormsComponent,
+    TablesComponent,
+    DashboradComponent,
  
   ],
   imports: [
@@ -20,7 +32,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatSliderModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LayoutModule,
+    UsersModule 
 
   ],
   providers: [],

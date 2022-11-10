@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UsersComponent } from './users/users.component';
-
+import { ChartsComponent } from './componants/charts/charts.component';
+import { DashboradComponent } from './componants/dashborad/dashborad.component';
+import { FormsComponent } from './componants/forms/forms.component';
+import { TablesComponent } from './componants/tables/tables.component';
+ 
 const routes: Routes = [
 {path:"" , redirectTo:"/dashboard" , pathMatch:"full"},
 {path:'dashboard',loadChildren:()=>import("./dashboard/dashboard.module").then(m=>{ return  m.DashboardModule})},
@@ -14,8 +16,12 @@ const routes: Routes = [
 {path:"companies",  loadChildren : ()=> import("./companies/companies.module").then(m=>{return m.CompaniesModule})},
 {path:"folders",    loadChildren : ()=> import("./folders/folders.module").then(m=>{return m.FoldersModule})},
 {path:"interviews", loadChildren : ()=> import("./interviews/interviews.module").then(m=>{return m.InterviewsModule})},
+{path:"dashborad",component:DashboradComponent },
+{path:"tables",component:TablesComponent },
+{path:"forms",component:FormsComponent },
+{path:"charts",component:ChartsComponent }
+]
 
-];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
